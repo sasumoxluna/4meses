@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>50 Cosas Que Me Gustan de Ti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum-950:#241224;
+    --plum-900:#341a34;
+    --plum-800:#4a2547;
+    --rose-400:#e7a8b5;
+    --rose-200:#f6d9dd;
+    --gold-400:#d9a869;
+    --cream-50:#fbf3ea;
+    --cream-100:#f3e6d6;
+    --ink:#3a2530;
+    --shadow: 0 30px 60px -25px rgba(20, 8, 20, 0.6);
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    height:100%;
+    margin:0;
+  }
+  body{
+    font-family:'Nunito Sans', sans-serif;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(217,168,105,0.18), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(231,168,181,0.18), transparent 50%),
+      linear-gradient(180deg, var(--plum-950), var(--plum-900) 60%, var(--plum-800));
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding:56px 20px 40px;
+    color:var(--cream-50);
+    overflow-x:hidden;
+    position:relative;
+  }
+  /* estrellitas ambientales */
+  .spark{
+    position:fixed;
+    width:3px;height:3px;
+    border-radius:50%;
+    background:var(--gold-400);
+    opacity:.55;
+    animation:twinkle 3.5s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:.15; transform:scale(1);}
+    50%{opacity:.8; transform:scale(1.6);}
+  }
+  header{
+    text-align:center;
+    margin-bottom:8px;
+    z-index:2;
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    color:var(--rose-400);
+    font-weight:700;
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:clamp(34px, 6vw, 54px);
+    margin:0;
+    letter-spacing:.01em;
+    background:linear-gradient(120deg, var(--cream-50), var(--rose-200) 60%, var(--gold-400));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .subt{
+    margin:12px auto 0;
+    max-width:420px;
+    font-size:15px;
+    line-height:1.5;
+    color:var(--rose-200);
+    opacity:.85;
+  }
+  main{
+    z-index:2;
+    width:100%;
+    max-width:460px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:38px;
+  }
+  .stage{
+    width:100%;
+    perspective:1600px;
+  }
+  .card{
+    position:relative;
+    width:100%;
+    aspect-ratio: 4 / 5;
+    max-height:420px;
+    transform-style:preserve-3d;
+    transition:transform .65s cubic-bezier(.22,.9,.32,1.15);
+    cursor:pointer;
+  }
+  .card.flipped{ transform:rotateY(180deg); }
+  .face{
+    position:absolute; inset:0;
+    border-radius:26px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    backface-visibility:hidden;
+    box-shadow:var(--shadow);
+    padding:36px 30px;
+    text-align:center;
+  }
+  .face-front{
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,255,255,.5), transparent 55%),
+      linear-gradient(160deg, var(--cream-50), var(--cream-100));
+    color:var(--ink);
+    border:1px solid rgba(255,255,255,.6);
+  }
+  .face-front .mark{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:52px;
+    color:var(--rose-400);
+    margin-bottom:6px;
+  }
+  .face-front .hint{
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#8a6b74;
+    font-weight:700;
+  }
+  .face-front .counter{
+    position:absolute;
+    top:20px; left:24px;
+    font-size:12px;
+    font-weight:800;
+    color:var(--rose-400);
+    letter-spacing:.08em;
+  }
+  .face-back{
+    background:linear-gradient(155deg, var(--plum-800), #5c2c52 70%);
+    color:var(--cream-50);
+    transform:rotateY(180deg);
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .face-back::before{
+    content:"";
+    position:absolute;
+    top:18px; left:18px; right:18px; bottom:18px;
+    border:1px dashed rgba(246,217,221,.35);
+    border-radius:18px;
+    pointer-events:none;
+  }
+  .qnum{
+    font-size:12px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--gold-400);
+    font-weight:800;
+    margin-bottom:18px;
+  }
+  .qtext{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(20px, 4.6vw, 25px);
+    line-height:1.35;
+  }
+  .controls{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-top:30px;
+  }
+  button{
+    font-family:'Nunito Sans', sans-serif;
+    font-weight:800;
+    font-size:14px;
+    letter-spacing:.03em;
+    border:none;
+    cursor:pointer;
+    border-radius:999px;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn-next{
+    padding:15px 34px;
+    background:linear-gradient(120deg, var(--rose-400), var(--gold-400));
+    color:var(--plum-950);
+    box-shadow:0 14px 30px -12px rgba(217,168,105,.6);
+  }
+  .btn-next:hover{ transform:translateY(-2px); }
+  .btn-next:active{ transform:translateY(0px) scale(.98); }
+  .btn-ghost{
+    width:44px; height:44px;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,.06);
+    color:var(--rose-200);
+    border:1px solid rgba(255,255,255,.14);
+    font-size:16px;
+  }
+  .btn-ghost:hover{ background:rgba(255,255,255,.12); }
+  .progress{
+    margin-top:26px;
+    display:flex;
+    gap:6px;
+    z-index:2;
+  }
+  .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    background:rgba(246,217,221,.25);
+    transition:all .3s ease;
+  }
+  .dot.active{
+    width:20px;
+    background:var(--gold-400);
+  }
+  footer{
+    margin-top:30px;
+    font-size:12px;
+    color:rgba(246,217,221,.45);
+    letter-spacing:.05em;
+    z-index:2;
+    text-align:center;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .card{ transition:none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <p class="eyebrow">para mi amada, con todo mi corazón</p>
+  <h1>30 cosas que me encantannnnn de ti</h1>
+  <p class="subt">Toca la carta para revelar una razón a la vez.</p>
+</header>
+<main>
+  <div class="stage">
+    <div class="card" id="card">
+      <div class="face face-front">
+        <span class="counter" id="counterFront">01 / 30</span>
+        <div class="mark">&#10084;</div>
+        <div class="hint">Toca para revelar</div>
+      </div>
+      <div class="face face-back">
+        <div class="qtext" id="qtext">Cargando...</div>
+      </div>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn-ghost" id="shuffleBtn" title="Barajar">&#8635;</button>
+    <button class="btn-next" id="nextBtn">Siguiente</button>
+  </div>
+  <div class="progress" id="progress"></div>
+</main>
+<footer>Hecho con amor, para mi cielo bonita</footer>
+<script>
+  const questions = [
+    "Me encanta la forma en que te ries de mis chistes o cosas que digo.",
+    "Admiro tu forma de querer ayudar a todos, independiente de quien sea das todo de ti por ayudarle.",
+    "Me gusta que estés atenta a mi y lo que llego a decir.",
+    "Amo lo mucho lo concentrada que estás al hacer algo que te gusta, se nota que lo disfrutas.",
+    "Me encanta tu forma de hablar, siempre lo digo pero me cautivas contandome lo que sea.",
+    "Adoro que a veces te muestres curiosa frente a cosas que te interesan.",
+    "Me gusta que tengas unos ideales marcados y frente a ninguna situación los cambias, te hace ver alguien fuerte cielo.",
+    "Amo tu sentido del humor, me rio con cada cosa que hablamos que sea chistosa siempre.",
+    "Me encanta que seas honesta conmigo, aprecio que no te guardes nada.",
+    "Admiro lo paciente que eres frente a lo que te pasa.",
+    "Adoro la forma en la que siempre buscas llevar cualquier problema por la mejor vía posible.",
+	
+    "Amo tu forma de decirme cielo.",
+    "Me encantas tú completa.",
+    "Adoro que siempre busques un momento para hablar conmigo, aunque no tengas tiempo para hacerlo.",
+    "Me gusta cómo hablas al despertar.",
+    "Me gusta escucharte hablar temas que te apasionan.",
+    "Me ver tus ojitos, son la cosa más bonita que hay y siempre lo diré, son preciosos.",
+    "Admiro que dibujes tan bonito, adoro tu creatividad.",
+	
+    "Me gusta cómo comentas las partidas de among us y te das cuenta que soy el impostor kjsdfk.",
+    "Amo pasar mi tiempo a tu lado.",
+    "Me divierto mucho intentando hacer que no descubras que soy el impostor, aunque te des cuenta porque no hable:C.",
+    "Adoro tu amor por los animales.",
+    "Amo que solamente con hacer acto de presencia hagas que un día malo sea perfecto.",
+    "Amo cuando me sorprendes con llamadas espontáneas que yo también espero con ansias aunque no lo creas.",
+    "Aprecio que cuentes los miedos/incertidumbres que sientes, yo siempre daré lo mejor de mi para cuidar de ti y que no pienses en esas cosas malas eh.",
+    "Amo tu forma de vestirte, tienes un toque único cielo.",
+    "Me gusta tu cara, es preciosa completamente.",
+	
+    "Me gusta tu forma de amarme.",
+    "Me gustas tú.",
+	
+    "Me encanta que seas tú.",
+  ];
+  let order = questions.map((_, i) => i);
+  let current = 0;
+  const card = document.getElementById('card');
+  const qtext = document.getElementById('qtext');
+  const counterFront = document.getElementById('counterFront');
+  const counterBack = document.getElementById('counterBack');
+  const nextBtn = document.getElementById('nextBtn');
+  const shuffleBtn = document.getElementById('shuffleBtn');
+  const progress = document.getElementById('progress');
+  function pad(n){ return String(n + 1).padStart(2, '0'); }
+  function buildProgress(){
+    progress.innerHTML = '';
+    order.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === current ? ' active' : '');
+      progress.appendChild(d);
+    });
+  }
+  function renderQuestion(){
+    const qIndex = order[current];
+    qtext.textContent = questions[qIndex];
+    counterFront.textContent = pad(current) + ' / ' + questions.length;
+    buildProgress();
+  }
+  function goNext(){
+    card.classList.remove('flipped');
+    current = (current + 1) % order.length;
+    setTimeout(renderQuestion, 180);
+  }
+  function shuffle(){
+    for (let i = order.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    current = 0;
+    card.classList.remove('flipped');
+    renderQuestion();
+  }
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); goNext(); });
+  shuffleBtn.addEventListener('click', (e) => { e.stopPropagation(); shuffle(); });
+  for (let i = 0; i < 22; i++){
+    const s = document.createElement('div');
+    s.className = 'spark';
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.top = Math.random() * 100 + 'vh';
+    s.style.animationDelay = (Math.random() * 3.5) + 's';
+    document.body.appendChild(s);
+  }
+  renderQuestion();
+</script>
+</body>
+</html>

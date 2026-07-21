@@ -1,0 +1,139 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta Secreta by myeya</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fce4ec;
+    }
+    .screen {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .active {
+      display: flex;
+    }
+    .password-screen {
+      flex-direction: column;
+    }
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .key {
+      background-color: #f8bbd0;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      padding: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .key:hover {
+      background-color: #f48fb1;
+    }
+    .input-display {
+      font-size: 24px;
+      margin-top: 20px;
+      letter-spacing: 8px;
+    }
+    .notepad {
+      background-color: #fff0f6;
+      border: 3px solid #f8bbd0;
+      padding: 20px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      text-align: left;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      line-height: 1.6;
+    }
+    .notepad h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+<div id="passwordScreen" class="screen password-screen active">
+  <h2>🔒 Ingresa la contraseña</h2>
+  <p>Pista: El dia/mes que comenzó...</p>
+  <div class="input-display" id="inputDisplay">••••</div>
+  <div class="keypad">
+    <button class="key" onclick="enterDigit('1')">1</button>
+    <button class="key" onclick="enterDigit('2')">2</button>
+    <button class="key" onclick="enterDigit('3')">3</button>
+    <button class="key" onclick="enterDigit('4')">4</button>
+    <button class="key" onclick="enterDigit('5')">5</button>
+    <button class="key" onclick="enterDigit('6')">6</button>
+    <button class="key" onclick="enterDigit('7')">7</button>
+    <button class="key" onclick="enterDigit('9')">9</button>
+    <button class="key" onclick="enterDigit('8')">8</button>
+    <div></div>
+    <button class="key" onclick="enterDigit('0')">0</button>
+    <div></div>
+  </div>
+</div>
+<div id="notepadScreen" class="screen">
+  <div class="notepad">
+    <h3>📅 20 Julio 2026 </h3>
+    <h4>💌 Mi amada Angie </h4>
+    <p>
+      Hoy cumplimos un mes más juntos, y aunque siempre lo repita en todo momento, no puedo estar más feliz de
+	  ser parte de tu vida y que tu también seas parte de la mia.
+    </p>
+    <p>
+      A tu lado he aprendido a querer de una manera distinta, algo que no es explicable con palabras, si no con
+	  la forma de ser que tengo a tu lado, la forma en la que me expreso y los nervios que a veces me dan solamente
+	  al querer decirte algo bonito jajdaj, me haces sentir cada momento como algo único y especial, y de verdad lo agradezco mucho.
+    </p>
+    <p>
+      Este mes es otro capitulo más para nosotros juntos como dijiste el mes pasado, pero aún así necesito decir que estos capitulos
+	  de mi vida están siendo los mejores porque estás tú a mi lado, cosa que nada, ni nadie podrá cambiar jamás, soy muy feliz a tu lado
+	  ayer, hoy y mañana.
+    </p>
+    <p>
+      Sigamos construyendo esta historia nuestra que me encanta tanto.
+    </p>
+	<p>
+	  Siempre me preguntas el porque te amo tanto y todo eso... bueno cielo, acá tienes unas cuantas razones por las cuales te amo tanto
+	  <a href="30-cosas/30.html">dale clic acá cielo</a> <3
+	</p>
+    <p>
+      Te amo con todo mi corazón, Benjamín. ♡
+    </p>
+  </div>
+</div>
+<script>
+  const correctPassword = '2003';
+  let input = '';
+  function enterDigit(digit) {
+    if (input.length < 4) {
+      input += digit;
+    }
+    const display = document.getElementById('inputDisplay');
+    display.textContent = input.padEnd(4, '•');
+    if (input.length === 4) {
+      if (input === correctPassword) {
+        document.getElementById('passwordScreen').classList.remove('active');
+        document.getElementById('notepadScreen').classList.add('active');
+      } else {
+        alert('Contraseña incorecta, intenta de nuevo');
+        input = '';
+        display.textContent = '••••';
+      }
+    }
+  }
+</script>
+</body>
+</html>
